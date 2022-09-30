@@ -36,7 +36,7 @@ class Matrix {
         Random rd = new Random();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                matrix[i][j] = rd.nextInt( 10,50);
+                matrix[i][j] = rd.nextInt(10, 50);
             }
         }
     }
