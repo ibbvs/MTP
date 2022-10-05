@@ -16,6 +16,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             test1.add((int) (Math.random() * 7));
         }
+
         System.out.println("Исходная int коллекция: ");
         System.out.println(test1);
         System.out.println("Коллекция после удаления дупликатов:");
