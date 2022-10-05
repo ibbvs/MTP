@@ -14,7 +14,10 @@ public class Main {
             list.add(rd.nextInt(10));
         }
         System.out.printf("Метод добавляет 1 000 000 элементов за %d mls\n", System.currentTimeMillis() - start);
-        return new ArrayList<>(list);
+        if (list instanceof ArrayList)
+            return new ArrayList<>(list);
+        else
+            return new LinkedList<>(list);
     }
 
     public static List<Integer> getValue(List<Integer> list) {
