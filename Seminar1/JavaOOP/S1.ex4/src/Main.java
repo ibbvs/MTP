@@ -53,13 +53,11 @@ class Ball extends SolidOfRevolution {}
 public class Main {
 
     public static void main(String[] args) {
-        // коробка
-        Box box = new Box();
-        // объем коробки
-        box.setVolume(60.3);
 
-        //шар с объемом 17.2
-        Ball ball1 = new Ball();
+        Box box = new Box(); // коробка
+        box.setVolume(60.3); // объем коробки
+
+        Ball ball1 = new Ball(); //шар с объемом 17.2
         ball1.setVolume(17.2);
 
 
