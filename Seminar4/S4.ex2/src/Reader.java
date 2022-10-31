@@ -1,4 +1,4 @@
-
+// Так как в задании не написано что надо хранить взятые книги, я не создавал массив, куда можно было заносить или удалять взятые книги.
 public class Reader {
     private String name;
     private int number;
@@ -66,37 +66,39 @@ public class Reader {
         System.out.println(this.name + " взял " + count + " книги");
     }
 
-    public void takeBook(String ... name) {
-        System.out.println(this.name + " взял книги ");
-        for (String n : name) {
-            System.out.print(name);
+    public void takeBook(String... names) {
+        System.out.printf("%s взял книги: ", this.name);
+        for (int i=0; i < names.length-1; i++) {
+            System.out.printf("%s, ", names[i]);
         }
+        System.out.println(names[names.length-1] + '.');
     }
 
-    public void takeBook(String name, Book ... books) {
-        System.out.println(name + " взял книги ");
-        for (Book b : books) {
-            System.out.print(b);
+    public void takeBook(Book ... books) {
+        System.out.printf("%s взял книги: ", this.name);
+        for (int i=0; i < books.length-1; i++) {
+            System.out.printf("'%s', ", books[i].getBookName());
         }
+        System.out.printf("'%s'.\n", books[books.length - 1].getBookName());
     }
 
     public void returnBook(int count) {
         System.out.println(this.name + " вернул " + count + " книги");
     }
 
-    public void returnBook(String ... name) {
-        System.out.println(this.name + " вернул книги ");
-        for (String n : name) {
-            System.out.print(name);
+    public void returnBook(String ... names) {
+        System.out.printf("%s взял книги: ", this.name);
+        for (int i=0; i < names.length-1; i++) {
+            System.out.printf("%s, ", names[i]);
         }
+        System.out.println(names[names.length-1] + '.');
     }
 
     public void returnBook(String name, Book ... books) {
-        System.out.println(name + " вернул книги ");
-        for (Book b : books) {
-            System.out.print(b);
+        System.out.printf("%s взял книги: ", this.name);
+        for (int i=0; i < books.length-1; i++) {
+            System.out.printf("'%s', ", books[i].getBookName());
         }
+        System.out.printf("'%s'.\n", books[books.length - 1].getBookName());
     }
-
-
 }
