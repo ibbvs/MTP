@@ -9,7 +9,7 @@ public class Main {
         System.out.println(Person1.toString());
         Person1.takeBook(3);
         Person1.takeBook("Стихи", "Ужасы", "Детектив");
-        Person1.takeBook(new Book("Илиада", "Гомер"),new Book("10 негритят", "Агата Кристи"));
+        Person1.takeBook(new Book("Илиада", "Гомер"), new Book("10 негритят", "Агата Кристи"));
 
         Person1.returnBook(2);
 
@@ -20,7 +20,5 @@ public class Main {
         for (Reader reader: readers) {
             System.out.println(reader);
         }
-
-
     }
 }
