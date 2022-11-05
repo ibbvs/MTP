@@ -1,8 +1,3 @@
-package com.company;
-import java.util.Scanner;
-
-
-
 public class Car implements Comparable<Car> {
     private final String color, type_box;
     private final int maxSpeed;
