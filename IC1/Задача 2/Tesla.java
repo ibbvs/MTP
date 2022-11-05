@@ -1,5 +1,3 @@
-package com.company;
-
 public class Tesla extends Car{
     private final int year;
 
