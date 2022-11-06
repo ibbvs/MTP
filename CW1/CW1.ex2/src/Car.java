@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Car implements Comparable<Car> {
     private final String color, type_box;
     private final int maxSpeed;
@@ -15,7 +17,7 @@ public class Car implements Comparable<Car> {
     public int getPrice(){ return price;}
 
     public void start() {
-        System.out.printf("Начальная скорость равна %d, сколько добавляем к текущей скорости: \n", currentSpeed);
+        System.out.printf("Скорость равна %d, сколько добавляем к текущей скорости: \n", currentSpeed);
         Scanner scan = new Scanner(System.in);
         int speed = scan.nextInt();
         accelerate(speed);
@@ -30,7 +32,7 @@ public class Car implements Comparable<Car> {
 
         if (speed + currentSpeed <= maxSpeed) {
             currentSpeed = speed + currentSpeed;
-            System.out.printf("Текущая увеличилась на %s, текущая скорость равна %d.\n", speed, currentSpeed);
+            System.out.printf("Скорость увеличилась на %s, текущая скорость равна %d.\n", speed, currentSpeed);
         } else {
             System.out.printf("Машина достигла своей максимальной скорости, которая равна %s, увеличение скорости невозможно.\n", maxSpeed);
         }
@@ -52,6 +54,6 @@ public class Car implements Comparable<Car> {
                 "Коробка передач = " + type_box + '\n' +
                 "Максимальная скорость = " + maxSpeed + '\n' +
                 "Текущая скорость = " + currentSpeed + '\n' +
-                "Цена = " + price;
+                "Цена = " + price + '\n' + '\n';
     }
 }
