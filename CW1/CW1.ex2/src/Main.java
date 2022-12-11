@@ -15,7 +15,9 @@ public class Main {
         garage.addCar(new Tesla("green", 225, 140, "auto", 55000000, 2021));
         garage.addCar(new Lada("brown", 140, 140, "mechanic", 550000, "Niva"));
         garage.addCar(new Tesla("yellow", 225, 140, "auto", 55000000, 2021));
+        System.out.println();
         garage.getCars("количество");
+        System.out.println();
         garage.getCars("цена");
     }
 }
