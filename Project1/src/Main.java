@@ -32,8 +32,10 @@ public class Main {
                     taskList.showTasks();
                     break;
                 case "5":
+                    ArrayList<Task> trueTaskList = taskList.getTrueTaskList();
                     break;
                 case "6":
+                    ArrayList<Task> falseTaskList = taskList.getFalseTaskList();
                     break;
                 case "7":
                     break;

@@ -9,7 +9,7 @@ public class Task {
     private String title;
     private String description;
 
-    private boolean flag=false;
+    private boolean flag;
 
 
     public Task( String title, String description, String endDate, boolean flag) {

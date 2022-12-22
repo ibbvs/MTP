@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 
@@ -28,6 +29,15 @@ public class TaskService {
     }
 
 
+    public static Task searchTask() {
+        System.out.print("Введите id задачи - ");
+        Scanner sc = new Scanner(System.in);
+        int id = sc.nextInt();
+        Task task = taskList.get(id - 1);
+        return task;
+    }
+
+
     //добавление в список
     public void addTask(Task task) {
         taskList.add(task);
@@ -36,10 +46,9 @@ public class TaskService {
 
     // внесение изменений в задачу
     public void changeTask() {
-        System.out.print("Введите id задачи - ");
         Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
-        Task task = taskList.get(id - 1);
+
+        Task task = searchTask();
         System.out.println("Хотите отметить задание как выполненное? ['да', 'нет']");
         String answer = sc.nextLine();
         if (answer.equals("да"))
@@ -64,11 +73,8 @@ public class TaskService {
 
 
     public void getTaskDescription() {
-        System.out.print("Введите id задачи - ");
-        Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
-        Task task = taskList.get(id - 1);
-        System.out.printf("Описание - %s\n задачи %s", task.getDescription(), task.getTitle());
+        Task task = searchTask();
+        System.out.printf("Описание - %s\n задачи %s\n\n", task.getDescription(), task.getTitle());
     }
 
 
@@ -86,12 +92,37 @@ public class TaskService {
 
     //удаление задачи по id
     public void deleteTask() {
-        System.out.print("Введите id задачи - ");
-        Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
-        Task task = taskList.get(id - 1);
+        Task task = searchTask();
         taskList.remove(task);
         System.out.println("Задача удалена из списка!");
+    }
+
+
+
+    public static ArrayList<Task> getTrueTaskList() {
+        ArrayList<Task> trueTaskList = taskList;
+        trueTaskList.removeIf(task -> task.getFlag() == false);
+        if (trueTaskList.isEmpty()) {
+            System.out.println("Список дел которые выполнены пуст!");
+        } else {
+            System.out.println("Список выполненных дел:\n");
+            trueTaskList.forEach(task -> System.out.printf("id=%s - %s\n сделать до - %s\n\n", task.getId(), task.getTitle(), task.getEndDate()));
+        }
+        return trueTaskList;
+    }
+
+
+
+    public static ArrayList<Task> getFalseTaskList() {
+        ArrayList<Task> trueTaskList = taskList;
+        trueTaskList.removeIf(task -> task.getFlag() == true);
+        if (trueTaskList.isEmpty()) {
+            System.out.println("Список дел которые выполнены пуст!");
+        } else {
+            System.out.println("Список выполненных дел:\n");
+            trueTaskList.forEach(task -> System.out.printf("id=%s - %s\n сделать до - %s\n\n", task.getId(), task.getTitle(), task.getEndDate()));
+        }
+        return trueTaskList;
     }
 
 }
