@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
-        TaskStore taskList = new TaskStore(new ArrayList<>());
+        TaskService taskList = new TaskService(new ArrayList<>());
         System.out.println("Планировщик дел v. -0.1\n");
         System.out.println("В данном приложении реализованны следующие функции:");
         System.out.println("1 - Создать задание\n2 - Редактировать задание\n3 - Удалить задание");
@@ -19,10 +19,11 @@ public class Main {
             String choice = sc.nextLine();
             switch (choice) {
                 case "1":
-                    Task task = TaskService.createTask();
-                    taskList.addTask(task);
+                    Task task1 = TaskService.createTask();
+                    taskList.addTask(task1);
                     break;
                 case "2":
+                    taskList.changeTask();
                     break;
                 case "3":
                     taskList.deleteTask();
@@ -39,6 +40,7 @@ public class Main {
                 case "8":
                     break;
                 case "9":
+                    taskList.getTaskDescription();
                     break;
                 case "0":
                     flag = false;

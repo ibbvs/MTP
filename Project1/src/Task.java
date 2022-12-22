@@ -9,14 +9,16 @@ public class Task {
     private String title;
     private String description;
 
+    private boolean flag=false;
 
 
-    public Task( String title, String description, String endDate) {
+    public Task( String title, String description, String endDate, boolean flag) {
         this.id = ++counter;
         this.title = title;
         this.description = description;
         this.startDate = new SimpleDateFormat("dd.MM.yyyy  hh:mm").format(new Date());
         this.endDate = endDate;
+        this.flag = flag;
     }
 
     public Task() {
@@ -31,8 +33,8 @@ public class Task {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = String.valueOf(endDate);
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getDescription() {
@@ -54,6 +56,14 @@ public class Task {
     public int getId() {
         return id;
     }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+    public boolean getFlag() {
+        return flag;
+    }
+
 
 
     @Override
