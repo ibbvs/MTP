@@ -16,12 +16,12 @@ public class Task {
         this.id = ++counter;
         this.title = title;
         this.description = description;
-        this.startDate = new SimpleDateFormat("dd.MM.yyyy  hh:mm").format(new Date());
+        this.startDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date()); // убрал время чтобы проще было находить задачи по дате создания (не указывать минуты и секунды создания)
         this.endDate = endDate;
         this.flag = flag;
     }
 
-    public Task() {
+    public Task(Task task) {
     }
 
     public String getStartDate() {
